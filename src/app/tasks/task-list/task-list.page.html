@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lista de todas as Tarefas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let task of tasks | async" >
+    <ion-item>
+      <ion-toggle checked={{task.completed}} [(ngModel)]="task.completed"></ion-toggle> 
+      <span [innerHTML]="task.description" [ngClass]="task.completed ? 'task-completed' : '' "></span>
+    </ion-item> 
+  </ion-list>
+</ion-content>
