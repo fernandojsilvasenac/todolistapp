@@ -15,19 +15,6 @@ export class TaskListPage implements OnInit {
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
-    // debugger;
-    // const observable$ = from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    // observable$.pipe(
-    //   filter(x => x % 2 == 0),
-    //   reduce( (acumulador, valor, index) => {
-    //         console.log(acumulador);
-    //         console.log(valor);
-    //         console.log(index);
-    //   return acumulador + valor;
-    //   })
-
-
-    // ).subscribe(x => console.log(x));
 
     // esse execução é somente para vermos o retorno da consulta no console.log
     this.tasksService.getAll().subscribe( (data: any) => {
