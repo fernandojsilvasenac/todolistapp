@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, from } from 'rxjs';
+import { Observable } from 'rxjs';
 import { TasksService } from '../shared/tasks.service';
 import { Tasks } from '../shared/tasks';
-import { reduce, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-task-list',
