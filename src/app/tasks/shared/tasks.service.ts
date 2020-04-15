@@ -18,6 +18,10 @@ export class TasksService {
     this.tasksCollection = this.afs.collection<Tasks>('tasks');
   }
 
+  insert(tasks: Tasks){
+    return this.tasksCollection.add(tasks);
+  }
+
 
   // getAll(){
   //   return this.afs.collection('tasks', ref => ref.orderBy('description','desc')).valueChanges();
