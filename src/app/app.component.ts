@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'List all tasks',
-      url: '/task-list',
+      url: '/tasks/list',
       icon: 'receipt'
     }
   ];

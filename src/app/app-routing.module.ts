@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'task-list',
+    redirectTo: 'folder/Home',
     pathMatch: 'full'
   },
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'task-list',
+    path: 'tasks/list',
     loadChildren: './tasks/task-list/task-list.module#TaskListPageModule'
   },
   {
@@ -20,8 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./tasks/task-list-item/task-list-item.module').then( m => m.TaskListItemPageModule)
   },
   {
-    path: 'task-form',
-    loadChildren: () => import('./tasks/task-form/task-form.module').then( m => m.TaskFormPageModule)
+    path: 'tasks/new',
+    loadChildren: './tasks/task-form/task-form.module#TaskFormPageModule'
   }
 
 ];
