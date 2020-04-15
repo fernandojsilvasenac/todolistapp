@@ -14,4 +14,11 @@
       <span [innerHTML]="task.description" [ngClass]="task.completed ? 'task-completed' : '' "></span>
     </ion-item> 
   </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add" [routerLink]="['/tasks/new']" routerLinkActive="router-link-active" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>  
+  
 </ion-content>
