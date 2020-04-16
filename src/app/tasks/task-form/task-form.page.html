@@ -7,12 +7,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <form [formGroup]="formtasks" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="stacked">Descrição</ion-label>
       <ion-textarea formControlName="description"  rows="5"></ion-textarea>
+      <!-- <div [hidden]="!formtasks.controls.description.errors.required"> -->
     </ion-item>
+    <ion-item *ngIf="!f.description.valid && (f.description.dirty || f.description.touched)" color="danger">
+      <div [hidden]="!f.description.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Data Tarefa</ion-label>
+      <ion-input type="date" formControlName="datetasks"></ion-input>
+    </ion-item>
+
 
     <ion-button expand="block" type="submit">
       Salvar

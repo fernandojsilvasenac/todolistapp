@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { TasksService } from './../shared/tasks.service';
 import { ToastController } from '@ionic/angular';
 
@@ -19,15 +19,20 @@ export class TaskFormPage implements OnInit {
     private router: Router ) { }
 
   ngOnInit() {
-    this.criarFormulario();
+    this.createForm();
   }
 
-  criarFormulario() {
+  createForm() {
     this.formtasks = this.formBuilder.group({
       description: ['', Validators.required],
       completed: [false],
+      datetasks: [''],
     });
   }
+
+  // alias para os controles/inputs do form
+  get f() { return this.formtasks.controls; }
+  
 
   async show(mensagem: string){
     const toast = await this.toastController.create({
@@ -39,12 +44,12 @@ export class TaskFormPage implements OnInit {
   }
 
   async onSubmit() {
+    console.log(this.formtasks.value);
     if (this.formtasks.valid) {
-      console.log(this.formtasks.value);
       try {
         await this.tasksService.insert(this.formtasks.value);
         this.show('Tarefa salva com sucesso !!!');
-        this.criarFormulario();
+        // this.createForm();
         this.router.navigate(['/tasks/list']);
 
       } catch (error) {
@@ -53,6 +58,8 @@ export class TaskFormPage implements OnInit {
         // this.toastr.error('Erro ao tentar Salvar')
       }
 
+    } else {
+      this.show('Campo precisa ser preenchido');
     }
 
   }

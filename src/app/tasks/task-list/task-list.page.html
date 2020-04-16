@@ -10,6 +10,7 @@
 <ion-content>
   <ion-list *ngFor="let task of tasks | async" >
     <ion-item>
+      <span *ngIf="task.datetasks">{{ task.datetasks  | date:'dd/MM/yyyy' }}</span>
       <ion-toggle checked={{task.completed}} [(ngModel)]="task.completed"></ion-toggle> 
       <span [innerHTML]="task.description" [ngClass]="task.completed ? 'task-completed' : '' "></span>
     </ion-item> 

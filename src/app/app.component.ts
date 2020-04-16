@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
   }
 
   ngOnInit() {

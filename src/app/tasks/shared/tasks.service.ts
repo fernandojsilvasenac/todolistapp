@@ -27,28 +27,28 @@ export class TasksService {
   //   return this.afs.collection('tasks', ref => ref.orderBy('description','desc')).valueChanges();
   // }  
 
-  // getAll() {
-  //   return this.afs.collection('tasks', ref => ref.orderBy('description','asc'))
-  //   .snapshotChanges().pipe(
-  //     map(changes => {
-  //       return changes.map(c =>  ({
-  //         id: c.payload.doc.id, ...c.payload.doc.data() as Tasks
-  //       }))
-  //     })
-  //   );
-  // }  
+  getAll() {
+    return this.afs.collection('tasks', ref => ref.orderBy('description','asc'))
+    .snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(c =>  ({
+          id: c.payload.doc.id, ...c.payload.doc.data() as Tasks
+        }))
+      })
+    );
+  }
 
   // Modelo de Consulta snapshotChanges do Firestore
   // Documentação: https://github.com/angular/angularfire/blob/master/docs/firestore/collections.md#snapshotchanges
-  getAll() {
-    return this.tasksCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => {
-        const data = a.payload.doc.data();
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      }))
-    );
-  }
+  // getAll() {
+  //   return this.tasksCollection.snapshotChanges().pipe(
+  //     map(actions => actions.map(a => {
+  //       const data = a.payload.doc.data();
+  //       const id = a.payload.doc.id;
+  //       return { id, ...data };
+  //     }))
+  //   );
+  // }
 
   // getAll() {
   //   return this.afs.collection('tasks', ref => ref.orderBy('description','asc')).snapshotChanges().pipe(
