@@ -18,10 +18,25 @@ export class TasksService {
     this.tasksCollection = this.afs.collection<Tasks>('tasks');
   }
 
+  // insert document in the tasks collection
   insert(tasks: Tasks){
     return this.tasksCollection.add(tasks);
   }
 
+  // update document in the tasks collection
+  update(id: string, tasks: Tasks){
+    return this.tasksCollection.doc<Tasks>(id).update(tasks);
+  }
+
+  // delete document in task collection using id as reference
+  remove(id: string) {
+    this.tasksCollection.doc<Tasks>(id).delete();
+  }  
+
+  // search document in tasks collection by id
+  getByKey(id: string) {
+    return this.tasksCollection.doc<Tasks>(id).valueChanges();
+  }
 
   // getAll(){
   //   return this.afs.collection('tasks', ref => ref.orderBy('description','desc')).valueChanges();
