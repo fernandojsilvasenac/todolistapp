@@ -22,7 +22,12 @@ const routes: Routes = [
   {
     path: 'tasks/new',
     loadChildren: './tasks/task-form/task-form.module#TaskFormPageModule'
+  },
+  {
+    path: 'tasks/edit/:id',
+    loadChildren: './tasks/task-form/task-form.module#TaskFormPageModule'
   }
+
 
 ];
 

@@ -14,7 +14,6 @@ export class TaskListPage implements OnInit {
   constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
-
     // esse execução é somente para vermos o retorno da consulta no console.log
     this.tasksService.getAll().subscribe( (data: any) => {
       console.log(data);
@@ -22,5 +21,15 @@ export class TaskListPage implements OnInit {
     // essa é a execução que retorna a consulta para um observable e mostra na page
     this.tasks = this.tasksService.getAll();
   }
+
+
+  delete(task: Tasks){
+    this.tasksService.remove(task.id);
+  }
+
+  onCompletedCheckChange(task: Tasks) {
+    this.tasksService.update(task.id, task);
+  }
+
 
 }

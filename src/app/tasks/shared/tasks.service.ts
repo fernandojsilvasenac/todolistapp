@@ -34,7 +34,7 @@ export class TasksService {
   }  
 
   // search document in tasks collection by id
-  getByKey(id: string) {
+  getById(id: string) {
     return this.tasksCollection.doc<Tasks>(id).valueChanges();
   }
 

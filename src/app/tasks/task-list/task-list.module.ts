@@ -13,7 +13,7 @@ import { TaskListPage } from './task-list.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    TaskListPageRoutingModule
+    TaskListPageRoutingModule,
   ],
   declarations: [TaskListPage]
 })
